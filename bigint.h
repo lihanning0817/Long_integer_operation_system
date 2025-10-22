@@ -28,12 +28,38 @@ typedef struct{
 LinkList create_LNode(int digit);
 
 //插入高位（表头）
-void insertHead(BigInt*);
+void insertHead(BigInt*num,int digit);
 
 //插入低位（表尾）
+void insertTail(BigInt*num,int digit);
 
+//释放长整数
+void freeBigInt(BigInt*num);
 
+//释放并清空长整数
+void clearBigInt(BigInt*num);
 
+//比较两个长整数
+int compareBigInt(BigInt *a,BigInt *b);
 
+//主要函数
 
+//初始化
+void InitBigInt(BigInt *num);
 
+//读取
+void readBigInt(BigInt *num);
+
+//加
+void addBigInt(BigInt *a,BigInt *b,BigInt *result);
+
+//减
+void subBigInt(BigInt *a,BigInt *b,BigInt *result);
+
+//除
+void divBigInt(BigInt *a,BigInt b,BigInt *quotient,BigInt *remainder);
+
+//输出
+void printbigint(BigInt num);
+
+#endif BIGINT_H
