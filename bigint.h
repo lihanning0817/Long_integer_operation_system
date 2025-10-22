@@ -2,7 +2,6 @@
 //1. 长整数数据结构（结构体）
 //2. 各类函数的声明
 #ifndef BIGINT_H
-#endif BIGINT_H
 #define BIGINT_H
 
 #include<stdio.h>
