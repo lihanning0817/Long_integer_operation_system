@@ -62,4 +62,4 @@ void divBigInt(BigInt *a,BigInt b,BigInt *quotient,BigInt *remainder);
 //输出
 void printbigint(BigInt num);
 
-#endif BIGINT_H
+#endif // BIGINT_H
