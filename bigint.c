@@ -301,21 +301,6 @@ void clearBigInt(BigInt* num) {
 	num->sign = 1;
 }
 
-// 释放长整数（包含头结点），并置空结构体字段
-void freeBigInt(BigInt* num) {
-	if (num == NULL) return;
-	if (num->head != NULL) {
-		LinkList p = num->head;
-		while (p) {
-			LinkList tmp = p;
-			p = p->next;
-			free(tmp);
-		}
-	}
-	num->head = NULL;
-	num->length = 0;
-	num->sign = 1;
-}
 
 // 从输入读取长整数
 void readBigInt(BigInt* num) {
@@ -323,7 +308,7 @@ void readBigInt(BigInt* num) {
 	clearBigInt(num); // 先清空原有数据
 	char str[101];
 	if (scanf("%100s", str) != 1) return;
-	int len = strlen(str);
+    int len = (int)strlen(str);
 	int start = 0;
 
 	// 处理符号位
@@ -360,7 +345,7 @@ void readBigInt(BigInt* num) {
 }
 
 // 从高位到低位输出长整数
-void printBigint(BigInt num) {
+void printbigint(BigInt num) {
 	if (num.length == 0) { // 空数
 		printf("0\n");
 		return;
@@ -376,3 +361,17 @@ void printBigint(BigInt num) {
 	printf("\n");
 }
 
+// 释放长整数链表
+void freeBigInt(BigInt *num) {
+    if (num == NULL || num->head == NULL) return;
+
+    LinkList p = num->head;
+    while (p != NULL) {
+        LinkList temp = p;
+        p = p->next;
+        free(temp);
+    }
+
+    num->head = NULL;
+    num->length = 0;
+}
